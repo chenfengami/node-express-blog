@@ -1,0 +1,208 @@
+@charset "utf-8";
+2 /*!
+3  * @名称：base.css
+4  * @功能：1、重设浏览器默认样式
+5  *       2、设置通用原子类
+6  */
+7 /* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+8 html {
+9     background:white;
+10     color:black;
+11 }
+12 /* 内外边距通常让各个浏览器样式的表现位置不同 */
+13 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+14     margin:0;
+15     padding:0;
+16 }
+17 /* 要注意表单元素并不继承父级 font 的问题 */
+18 body,button,input,select,textarea {
+19     font:12px '\5b8b\4f53',arial,sans-serif;
+20 }
+21 input,select,textarea {
+22     font-size:100%;
+23 }
+24 /* 去掉 table cell 的边距并让其边重合 */
+25 table {
+26     border-collapse:collapse;
+27     border-spacing:0;
+28 }
+29 /* ie bug：th 不继承 text-align */
+30 th {
+31     text-align:inherit;
+32 }
+33 /* 去除默认边框 */
+34 fieldset,img {
+35     border:none;
+36 }
+37 /* ie6 7 8(q) bug 显示为行内表现 */
+38 iframe {
+39     display:block;
+40 }
+41 /* 去掉列表前的标识，li 会继承 */
+42 ol,ul {
+43     list-style:none;
+44 }
+45 /* 对齐是排版最重要的因素，别让什么都居中 */
+46 caption,th {
+47     text-align:left;
+48 }
+49 /* 来自yahoo，让标题都自定义，适应多个系统应用 */
+50 h1,h2,h3,h4,h5,h6 {
+51     font-size:100%;
+52     font-weight:500;
+53 }
+54 /* 统一上标和下标 */
+55 sub,sup {
+56     font-size:75%;
+57     line-height:0;
+58     position:relative;
+59     vertical-align:baseline;
+60 }
+61 sup {
+62     top:-0.5em;
+63 }
+64 sub {
+65     bottom:-0.25em;
+66 }
+67 /* 让链接在 hover 状态下显示下划线 */
+68 a:hover {
+69     text-decoration:underline;
+70 }
+71 /* 默认不显示下划线，保持页面简洁 */
+72 ins,a {
+73     text-decoration:none;
+74 }
+75 /* 去除 ie6 & ie7 焦点点状线 */
+76 a:focus,*:focus {
+77     outline:none;
+78 }
+79 /* 清除浮动 */
+80 .clearfix:before,.clearfix:after {
+81     content:"";
+82     display:table;
+83 }
+84 .clearfix:after {
+85     clear:both;
+86     overflow:hidden;
+87 }
+88 .clearfix {
+89     zoom:1; /* for ie6 & ie7 */
+90 }
+91 .clear {
+92     clear:both;
+93     display:block;
+94     font-size:0;
+95     height:0;
+96     line-height:0;
+97     overflow:hidden;
+98 }
+99 /* 设置显示和隐藏，通常用来与 js 配合 */
+100 .hide {
+101     display:none;
+102 }
+103 .block {
+104     display:block;
+105 }
+106 /* 设置浮动，减少浮动带来的 bug */
+107 .fl,.fr {
+108     display:inline;
+109 }
+110 .fl {
+111     float:left;
+112 }
+113 .fr {
+114     float:right;
+115 }
+116 /*文字排版、颜色*/
+117 .f12{font-size:12px}
+118 .f13{font-size:13px}
+119 .f14{font-size:14px}
+120 .f16{font-size:16px}
+121 .f20{font-size:20px}
+122 .fb{font-weight:bold}
+123 .fn{font-weight:normal}
+124 .t2{text-indent:2em}
+125 .red,a.red{color:#cc0031}
+126 .darkblue,a.darkblue{color:#039}
+127 .gray,a.gray{color:#878787}
+128 .lh150{line-height:150%}
+129 .lh180{line-height:180%}
+130 .lh200{line-height:200%}
+131 .unl{text-decoration:underline;}
+132 .no_unl{text-decoration:none;}
+133 /*定位*/
+134 .tl{text-align:left}
+135 .tc{text-align:center}
+136 .tr{text-align:right}
+137 .fl{float:left;display:inline}
+138 .fr{float:right;display:inline}
+139 .cb{clear:both}
+140 .cl{clear:left}
+141 .cr{clear:right}
+142 .vm{vertical-align:middle} 
+143 .pr{position:relative} 
+144 .pa{position:absolute}
+145 .abs-right{position:absolute;right:0}
+146 .zoom{zoom:1} 
+147 .hidden{visibility:hidden} 
+148 .none{display:none}
+149 /*长度高度*/
+150 .w10{width:10px}
+151 .w20{width:20px}
+152 .w50{width:50px}
+153 .w90{width:90px}
+154 .w100{width:100px}
+155 .w200{width:200px}
+156 .w250{width:250px}
+157 .w500{width:500px}
+158 .w800{width:800px}
+159 .w{width:100%}
+160 .h50{height:50px}
+161 .h80{height:80px}
+162 .h100{height:100px}
+163 .h200{height:200px}
+164 .h{height:100%}
+165 /*边距*/
+166 .m10{margin:10px}
+167 .m15{margin:15px}
+168 .m30{margin:30px}
+169 .mt5{margin-top:5px}
+170 .mt10{margin-top:10px}
+171 .mt15{margin-top:15px}
+172 .mt50{margin-top:50px}
+173 .mt100{margin-top:100px}
+174 .mb5{margin-bottom:5px}
+175 .mb10{margin-bottom:10px}
+176 .mb15{margin-bottom:15px}
+177 .mb100{margin-bottom:100px}
+178 .ml5{margin-left:5px}
+179 .ml10{margin-left:10px}
+180 .ml15{margin-left:15px}
+181 .ml20{margin-left:20px}
+182 .ml30{margin-left:30px}
+183 .ml50{margin-left:50px}
+184 .ml100{margin-left:100px}
+185 .mr5{margin-right:5px}
+186 .mr10{margin-right:10px}
+187 .mr15{margin-right:15px}
+188 .mr50{margin-right:50px}
+189 .mr100{margin-right:100px}
+190 .p10{padding:10px;}
+191 .p15{padding:15px;}
+192 .p30{padding:30px;}
+193 .pt5{padding-top:5px}
+194 .pt10{padding-top:10px}
+195 .pt15{padding-top:15px}
+196 .pt20{padding-top:20px}
+197 .pt30{padding-top:30px}
+198 .pt50{padding-top:50px}
+199 .pb5{padding-bottom:5px}
+200 .pb100{padding-bottom:100px}
+201 .pl5{padding-left:5px}
+202 .pl10{padding-left:10px}
+203 .pl50{padding-left:50px}
+204 .pl100{padding-left:100px}
+205 .pr5{padding-right:5px}
+206 .pr10{padding-right:10px}
+207 .pr15{padding-right:15px}
+208 .pr100{padding-right:100px}

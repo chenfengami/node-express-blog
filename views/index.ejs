@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    首页
+  </title>
+  <link rel='stylesheet' href='/stylesheets/index.css' />
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="/">首页</a>
+      </nav>
+    </div>
+  </header>
+  <section>
+    <div class="container">
+      <%for (var i=0;i<listData.length;i++) {%>
+      <article>
+        <h1 class="title">
+          <a href="<%= listData[i].url %>"><%= listData[i].title %></a>
+        </h1>
+        <div class="content">
+          <p class="brief"><%= listData[i].brief %></p>
+        </div>
+        <div class="read-all-detail">
+          <a href="<%= listData[i].url %>">阅读全文 »</a>
+        </div>
+        <div class="end-line"></div>
+      </article>
+      <%} %>
+    </div>
+
+  </section>
+</body>
+
+</html>

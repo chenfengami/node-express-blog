@@ -1,0 +1,108 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+a{
+  text-decoration: none;
+}
+/* 头部 */
+header{
+  height: 105px;
+  overflow: hidden;
+}
+header nav{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+header nav a{
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  color: #fff;
+  background: #bdaeae;
+  padding: 4px;
+  border-radius: 3px;
+  margin-top: 32.5px;
+  transition: background .3s;
+  -webkit-transition: background .3s;
+}
+header nav a:hover{
+  background: #965757;
+}
+/* 内容 */
+section{
+  overflow: hidden;
+  min-height: 900px;
+  background: url('../images/bg.jpg') center no-repeat;
+  background-size: cover;
+  padding-top: 111px;
+}
+section .container{
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, .3);
+} 
+@keyframes opacity{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+section .container article{
+  animation: opacity .77s;
+  -webkit-animation: opacity .77s;
+}
+section .container article .title{
+  padding-top: 30px;
+  text-align: center;
+  font-weight: 300;
+  font-size: 26px;
+}
+section .container article .title a{
+  color: #555;  
+}
+section .container article .title a:hover{
+  text-decoration: underline;
+}
+section .container .content p{
+  text-indent: 2em;
+  margin: 20px 100px;
+  color: #555;
+  line-height: 2;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow : hidden;
+}
+section .container .read-all-detail{
+  padding: 70px 100px;
+  text-align: center;
+}
+section .container .read-all-detail a{
+  margin: 0 auto;
+  display: inline-block;
+  text-align: center;
+  color: #555;
+  font-size: 14px;
+  padding: 0 20px;
+  border: 2px solid #555;
+  line-height: 2;
+  background: #fff;
+  border-radius: 2px;
+  -webit-border-radius: 2px;
+  transition: all .3s;
+  -webkit-transition: all .3s;
+}
+section .container .read-all-detail a:hover{
+  background: #555;
+  color: #fff;
+}
+section .container .end-line{
+  margin: 0 auto 30px;
+  width: 8%;
+  height: 1px;
+  background: #ccc;
+}
