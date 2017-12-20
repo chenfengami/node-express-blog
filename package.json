@@ -7,14 +7,16 @@
   },
   "dependencies": {
     "body-parser": "~1.18.2",
+    "bootstrap": "^3.3.7",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "ejs": "~2.5.7",
     "express": "~4.15.5",
+    "express-session": "1.9.1",
+    "connect-mongo": "0.4.1",    
+    "mongodb": "1.4.15",
     "morgan": "~1.9.0",
     "serve-favicon": "~2.4.5",
-    "mongodb": "1.4.15",
-    "express-session": "1.9.1",
-    "connect-mongo": "0.4.1"
+    "connect-flash": "0.1.1"
   }
 }
