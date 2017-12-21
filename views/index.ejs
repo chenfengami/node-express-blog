@@ -5,19 +5,12 @@
   <title>
     首页
   </title>
+  <link rel='stylesheet' href="./stylesheets/bootstrap.min.css">  
   <link rel='stylesheet' href='/stylesheets/index.css' />
 </head>
 
 <body>
-  <header>
-    <div class="container">
-      <nav>
-        <a href="/">首页</a>
-        <a href="/login">登录</a>
-        <a href="/register">注册</a>
-      </nav>
-    </div>
-  </header>
+  <%- include header %>
   <section>
     <div class="container">
       <%for (var i=0;i<listData.length;i++) {%>
@@ -35,7 +28,7 @@
       </article>
       <%} %>
     </div>
-
+    
   </section>
 </body>
 

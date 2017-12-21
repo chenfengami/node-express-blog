@@ -1,0 +1,19 @@
+section{
+    max-width: 100%;
+    overflow: hidden;
+    padding-top: 120px;
+}
+section .bg{
+    position: absolute;
+    top: 105px;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
+    background: url('../images/bg.jpg') center no-repeat;
+    background-size: cover;
+}
+section h1{
+    text-align: center;
+    padding-bottom: 50px;
+    color: #00BCD4;
+}
