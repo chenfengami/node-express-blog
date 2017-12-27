@@ -4,9 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>发布文章</title>
+    <link rel='stylesheet' href="../stylesheets/bootstrap.min.css">      
+    <link rel='stylesheet' href='../stylesheets/index.css' />
+    <link rel="stylesheet" href="../stylesheets/detail.css">
 </head>
 <body>
-    详情页
+    <%- include header %>
+    <section>
+        <div class="content-wrapper">
+            <h1 class="post-title"><%= posts.title %></h1>
+            <pre>
+                <code><%= posts.content %></code>
+            </pre>
+        </div>
+    </section>
 </body>
 </html>
+
+

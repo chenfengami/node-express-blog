@@ -1,0 +1,32 @@
+.content-wrapper {
+    max-width: 1000px;
+    min-height: 800px;
+    background: #fff;
+    margin: 0 auto;
+}
+
+.content-wrapper h1.post-title {
+    color: #555;
+    font-size: 26px;
+    text-align: center;
+    word-break: break-word;
+    font-weight: 300;
+    padding: 30px 0;
+}
+
+.content-wrapper pre{
+    overflow: auto;
+    width: 80%;
+    margin: 20px auto;
+    padding: 15px;
+    font-size: 13px;
+    color: #4d4d4c;
+    background: #f7f7f7;
+    line-height: 1.6;
+}
+.content-wrapper pre code{
+    padding: 0;
+    color: #4d4d4c;
+    background: none;
+    text-shadow: none;
+}

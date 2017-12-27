@@ -6,14 +6,14 @@
     首页
   </title>
   <link rel='stylesheet' href="./stylesheets/bootstrap.min.css">  
-  <link rel='stylesheet' href='/stylesheets/index.css' />
+  <link rel='stylesheet' href='./stylesheets/index.css' />
 </head>
 
 <body>
   <%- include header %>
   <section>
     <div class="container">
-      <%for (var i=0;i<listData.length;i++) {%>
+      <%for (var i = listData.length-1;i > 0;i--) {%>
       <article>
         <h1 class="title">
           <a href="<%= listData[i].url %>"><%= listData[i].title %></a>
