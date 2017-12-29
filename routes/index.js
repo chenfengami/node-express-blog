@@ -1,32 +1,19 @@
-var mongoose = require('mongoose');
+const settings = require('../db/setting')();
 var markdown = require('markdown').markdown;
-// mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://127.0.0.1:27017/blog');
-var db = mongoose.connection;
-//用户注册信息
-var User = mongoose.Schema({
+var User = settings.Schema({
   name: String,
   password: String,
 });
-//发送文章信息
-var article = mongoose.Schema({
+
+var article = settings.Schema({
   title: String,
   brief: String,
   content: String
 })
-var myModel = mongoose.model('users', User);
-var myPost = mongoose.model('posts', article);
-
-
-
+var myModel = settings.model('users', User);
+var myPost = settings.model('posts', article);
 module.exports = function (app) {
-  // let listData;
-  //首页
   app.get('/', function (req, res, next) {
-    //session
-    // if(!req.session.user){
-    //   res.redirect('/login');
-    // }
     myPost.find(function (err, posts) {
       posts.forEach((e, i) => {
         e.url = '/detail/' + e.title;
@@ -74,10 +61,8 @@ module.exports = function (app) {
         req.flash('error', '用户已经存在！');
         res.redirect('/register');
       }
-
       return;
     })
-
   });
   //登录页面
   app.get('/login', function (req, res, next) {
@@ -94,7 +79,7 @@ module.exports = function (app) {
           var userInfo = {
             'userName': user
           };
-          // req.session.user = userInfo;
+          req.session.user = userInfo;
           res.redirect('/');
         } else {
           req.flash('error', '密码错误，请确认后登录！');
@@ -135,7 +120,11 @@ module.exports = function (app) {
       }
     })
   })
-
+  
+  //文章管理
+  app.get('/manage', function(req, res, next){
+      res.render('manage');
+  });
 
   //详情页面
   app.get('/detail/:id', function (req, res, next) {

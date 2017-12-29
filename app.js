@@ -20,9 +20,8 @@ app.set('view engine', 'ejs');
 app.use(session({
   secret: 'myblog',
   key: 'blog',
-  cookie: {maxAge: 5000},
-  resave: false,
-  saveUninitialized: true,
+  cookie: {maxAge: 3600000}, //存储时间为30天
+  saveUninitialized: false,
 }));
 app.use(flash());
 app.use(function (req, res, next) {
