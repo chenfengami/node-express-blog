@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var markdown = require('markdown').markdown;
 // mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://127.0.0.1:27017/blog');
 var db = mongoose.connection;
@@ -123,7 +124,8 @@ module.exports = function (app) {
     var newPost = new myPost({
       title: req.body.title,
       brief: req.body.brief,
-      content: req.body.content
+      //将markdown格式转换为html格式
+      content: markdown.toHTML(req.body.content)
     })
     newPost.save(function (err, data) {
       if (data) {
