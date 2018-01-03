@@ -1,7 +1,7 @@
 .content-wrapper {
     max-width: 1000px;
     min-height: 800px;
-    background: #fff;
+    background: #f5f5d5;
     margin: 0 auto;
 }
 
@@ -29,4 +29,29 @@
     color: #4d4d4c;
     background: none;
     text-shadow: none;
+}
+.content-wrapper pre code{
+    font-size: 16px;
+}
+/* 评论区内容 */
+#comment{
+    width: 1000px;
+    margin: 0 auto;
+    background: #f5f5d5;
+}
+#comment .list{
+    border-bottom: 1px dashed #ddd;
+}
+#comment p{
+    padding: 20px;
+}
+#comment p.name{
+    font-weight: 600;
+}
+#comment p.comm-info{
+    padding-left: 30px;
+}
+#comment p.time{
+    font-style: italic;
+    text-align: right;
 }
