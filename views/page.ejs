@@ -6,8 +6,8 @@
   <title>
     首页
   </title>
-  <link rel='stylesheet' href="./stylesheets/bootstrap.min.css">
-  <link rel='stylesheet' href='./stylesheets/index.css' />
+  <link rel='stylesheet' href="../stylesheets/bootstrap.min.css">
+  <link rel='stylesheet' href='../stylesheets/index.css' />
 </head>
 
 <body>
@@ -17,7 +17,7 @@
         <div class="container">
           <div class="row">
             <div class="head-pic col-md-2 col-sm-3">
-              <img src="./images/me.jpg" alt="">
+              <img src="../images/me.jpg" alt="">
             </div>
             <div class="intro-info col-md-10 col-sm-9">
               <h2>"木讷患者"</h2>
@@ -32,7 +32,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="post-container">
-                <%for (var i = 0; i < 5; i++) {%>
+                <%for (var i = 5; i < 10; i++) {%>
                 <article class="post">
                   <h2 class="post-header">
                     <a href="<%= listData[i].url %>">
@@ -40,7 +40,7 @@
                     </a>
                   </h2>
                   <div class="entry">
-                    <a href="<%= listData[i].url %>"><img src="./images/timthumb.png" class="pull-left" width="200" height="160"></a>
+                    <a href="<%= listData[i].url %>"><img src="../images/timthumb.png" class="pull-left" width="200" height="160"></a>
                     <div class="text">
                       <p>
                           <%= listData[i].brief %>                        
@@ -65,9 +65,9 @@
                 <div class="pagination-outer">
                   <ul>
                     <li>
-                      <span class="current">1</span>
+                      <a href="/">1</a>
                     </li>
-                    <li><a href="/page/2">2</a></li>
+                    <li><span class="current">2</span>/li>
                     <li><a href="">3</a></li>
                     <li><a href="">4</a></li>
                     <li><a href="">5</a></li>
