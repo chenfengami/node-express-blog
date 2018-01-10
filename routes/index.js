@@ -1,17 +1,18 @@
-const settings = require('../db/setting')();
+const mongo = require('../db/setting')();
 var markdown = require('markdown').markdown;
-var User = settings.Schema({
+var User = mongo.Schema({
   name: String,
   password: String,
 });
 
-var article = settings.Schema({
+var article = mongo.Schema({
   title: String,
   brief: String,
-  content: String
+  content: String,
+  timeStamp: String
 })
-var myModel = settings.model('users', User);
-var myPost = settings.model('posts', article);
+var myModel = mongo.model('users', User);
+var myPost = mongo.model('posts', article);
 module.exports = function (app) {
   app.get('/', function (req, res, next) {
     myPost.find(function (err, posts) {
@@ -53,7 +54,6 @@ module.exports = function (app) {
         })
         newUser.save(function (err, data) {
           if (data) {
-            req.flash('info', '注册成功');
             res.redirect('/login');
           }
         })
@@ -106,11 +106,19 @@ module.exports = function (app) {
       res.redirect('/post');
       return;
     }
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+    month >= 10 ? month : '0' + month;
+    day >=10 ? day : '0' + day;
+    var timeStamp = year + '-' + month + '-' + day; 
     var newPost = new myPost({
       title: req.body.title,
       brief: req.body.brief,
       //将markdown格式转换为html格式
-      content: markdown.toHTML(req.body.content)
+      content: markdown.toHTML(req.body.content),
+      timeStamp: timeStamp
     })
     newPost.save(function (err, data) {
       if (data) {
@@ -120,11 +128,6 @@ module.exports = function (app) {
       }
     })
   })
-  
-  //文章管理
-  app.get('/manage', function(req, res, next){
-      res.render('manage');
-  });
 
   //详情页面
   app.get('/detail/:id', function (req, res, next) {

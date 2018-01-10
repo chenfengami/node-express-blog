@@ -14,9 +14,7 @@
     <section>
         <div class="content-wrapper">
             <h1 class="post-title"><%= posts.title %></h1>
-            <pre>
-                <code><%- posts.content %></code>
-            </pre>
+            <%- posts.content %>
         </div>
         <!-- 评论区域 -->
         <%- include comment %>

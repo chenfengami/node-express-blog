@@ -5,6 +5,14 @@
 a{
   text-decoration: none;
 }
+li{
+  list-style: none;
+}
+body{
+  color: #2c3e50;
+  font-size: 16px;  
+  background: url('../images/bg.jpg');
+}
 /* 头部 */
 header{
   height: 49px;
@@ -20,40 +28,68 @@ header .logo{
   height: 49px;
 }
 header nav a{
+  display: inline-block;
   line-height: 49px;
   color: #fff;
   font-weight: 500;
-  padding: 8px 15px 8px 15px;
+  padding: 0px 15px 0px 15px;
+  position: relative;
+}
+header nav a::after{
+  content: '';
+  display: block;
+  height: 3px;
+  width: 0%;
+  opacity: 0;
+  filter: alpha(opacity = 0);
+  background: #1EB294;
+  transition: all .20s;
+  position: absolute;
+  bottom: 7px;
+  left: 20%;
+}
+header nav a:first-child::after{
+  width: 60%;
+  opacity: 1;
 }
 header nav a:hover{
   color: #fff;
+  text-decoration: none;
+}
+header nav a:hover::after{
+  width: 60%;
+  opacity: 1;
+  filter: alpha(opacity = 100);  
 }
 /* 个人简介 */
-section .bio{
+section{
+  padding-top: 49px;
+}
+section #bio{
   background: #DAE5EA;
   border: 1px solid #ccc;
   overflow: hidden;
   margin-bottom: 20px;
 }
-section .bio .container{
+section #bio .container{
   height: 200px;
   overflow: hidden;
 }
-section .bio .container .head-pic{
+section #bio .container .head-pic{
   width: 165px;
   margin-top: 30px;
   overflow: hidden;
   border-radius: 50%;
   -webkit-border-radius: 50%;
 }
-section .bio .container .head-pic img{
+section #bio .container .head-pic img{
   width: 100%;
   height: 100%;
   border: 1px solid #fff;
   border-radius: 50%;
   -webkit-border-radius: 50%;
 }
-section .bio .container .intro-info h2{
+section #bio .container .intro-info h2{
   font-size: 16px;
   color: #6C8189;
   font-style: italic;
@@ -61,97 +97,118 @@ section .bio .container .intro-info h2{
   line-height: 40px;
   font-family: Droid Serif !important;
 }
-/* 内容 */
-section{
-  overflow: hidden;
-  min-height: 900px;
-  background: url('../images/bg.jpg');
-  padding-top: 49px;
-}
-section .container{
-  width: 1200px;
-  margin: 0 auto;
-  border-radius: 7px;
-  -webkit-border-radius: 7px;  
-}
-@keyframes opacity{
-  from{
-    opacity: 0;
-  }
-  to{
-    opacity: 1;
-  }
-}
-/* 文章分类 */
-section .container .sort-content{
-  width: 200px;
-  height: 700px;
-  background: #ddd;
-}
 
-
-/* 文章 */
-section .container article{
-  width: 845px;
-  background-color: rgba(255, 255, 255, .6);
+/* 文章列表 */
+section #container .container{
+  width: 1170px;
+  height: 300px;
+  /* background: #eee; */
+  margin-left: auto;
+  margin-right: auto;
+}
+section #container .post-container{
+  background: #fff;
+  padding-bottom: 20px;
   border: 1px solid #ccc;
-  border-top: none;  
+  border-top: none;
   border-bottom: none;
-  animation: opacity .77s;
-  -webkit-animation: opacity .77s;
 }
-section .container article .title{
-  padding-top: 30px;
-  font-weight: 300;
+section #container .post-container article.post{
+  padding: 30px 40px 10px 40px;
+  position: relative;
+}
+.post-container article.post h2.post-header{
+  margin: 0px 0px 20px 0;
+  line-height: 32px;
   font-size: 26px;
-  text-align: center;
 }
-section .container article .title a{
-  color: #2C3E50;  
-  transition: color .3s;
+.post-container article.post h2.post-header a{
+   color: #2C3E50;
 }
-section .container article .title a:hover{
+.post-container article.post h2.post-header a:hover{
+   color: #217DBB;
+   text-decoration: none;
+   transition: all .40s;
+}
+.post-container article.post .entry a img{
+  border: 4px solid #fff;
+  background-color: #fff;
+  margin: 5px 30px 10px 0;
+  -webkit-box-shadow: 2px 2px 3px 0px rgba(50, 50, 50, 0.34);
+  -moz-box-shadow: 2px 2px 3px 0px rgba(50, 50, 50, 0.34);
+  box-shadow: 2px 2px 3px 0px rgba(50, 50, 50, 0.34);
+}
+.post-container article.post .entry p{
+  line-height: 30px;
+  margin-bottom: 30px;
+}
+.post-container article.post .entry p a{
+  color: #18bc9c;
+  transition: all .40s;
+}
+.post-container article.post .entry p a:hover{
   color: #217DBB;
-  transition: color .3s;
   text-decoration: none;
 }
-section .container .content p{
-  text-indent: 2em;
-  margin: 20px 100px;
-  color: #555;
-  line-height: 2;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow : hidden;
-}
-section .container .read-all-detail{
-  padding: 70px 100px;
-  text-align: center;
-}
-section .container .read-all-detail a{
-  margin: 0 auto;
-  display: inline-block;
-  text-align: center;
-  color: #555;
+.post-container article.post .post-meta{
   font-size: 14px;
-  padding: 0 20px;
-  border: 2px solid #555;
-  line-height: 2;
-  background: #fff;
-  border-radius: 2px;
-  -webit-border-radius: 2px;
-  transition: all .3s;
-  -webkit-transition: all .3s;
+  color: #666;
+  border-top: 2px solid #E0E3E7;
+  border-bottom: 2px solid #E0E3E7;
+  padding: 10px 0;
+  margin-top: 27px;
 }
-section .container .read-all-detail a:hover{
-  background: #555;
+.post-container article.post .post-meta .post-time{
+  font-family: Droid Serif;
+  font-style: italic;
+}
+.post-container article.post .post-meta .post-time em{
+  color: #18bc9c;
+}
+
+/* 分页 */
+.pagination-outer{
+  width: 100%;
+  text-align: center;
+}
+.pagination-outer ul{
+  padding: 10px;
+  margin: auto;
+  clear: both;
+  display: inline-block;
+  border-radius: 4px;  
+}
+.pagination-outer ul>li{
+  display: inline;
+}
+.pagination-outer ul>li>span{
+  padding: 7px 9px;
+  font-size: 13px;
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
   color: #fff;
+  float: left;
 }
-section .container .end-line{
-  margin: 0 auto 30px;
-  width: 8%;
-  height: 1px;
-  background: #2c3e50;
+.pagination-outer ul>li>a{
+  padding: 6px 9px;
+  font-size: 13px;
+  position: relative;
+  float: left;
+  color: #fff;
+  background-color: #18bc9c;
+  border: 1px solid transparent;
+  margin-left: -1px;       
+  transition: all .40s;
+}
+.pagination-outer ul>li>a:hover{
+  background-color: #0f7864;
+  border-color: transparent;  
+  text-decoration: none;
+}
+.pagination-outer .current{
+  background-color: #0F7864; 
+}
+.pagination-outer .page-numbers{
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;  
 }

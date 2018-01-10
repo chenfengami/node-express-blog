@@ -6,49 +6,84 @@
   <title>
     首页
   </title>
-  <link rel='stylesheet' href="./stylesheets/bootstrap.min.css">  
+  <link rel='stylesheet' href="./stylesheets/bootstrap.min.css">
   <link rel='stylesheet' href='./stylesheets/index.css' />
 </head>
 
 <body>
   <%- include header %>
-  <section>
-      <div class="bio">
-          <div class="container">
-            <div class="row">
-              <div class="head-pic col-md-2 col-sm-3">
-                <img src="./images/me.jpg" alt="">
-              </div>
-              <div class="intro-info col-md-10 col-sm-9">
-                <h2>"木讷患者"</h2>
-                <h2>"17届不在校学生"</h2>
-                <h2>"多年后，做一个不漂的撒欢者"</h2>
-              </div>
+    <section>
+      <div id="bio">
+        <div class="container">
+          <div class="row">
+            <div class="head-pic col-md-2 col-sm-3">
+              <img src="./images/me.jpg" alt="">
+            </div>
+            <div class="intro-info col-md-10 col-sm-9">
+              <h2>"木讷患者"</h2>
+              <h2>"17届不在校学生"</h2>
+              <h2>"多年后，做一个不漂的撒欢者"</h2>
             </div>
           </div>
-      </div>      
-    <div class="container">   
-      <div class="sort-content pull-left">
-        <div class="sort-list">
-          <h2 class=""></h2>
         </div>
       </div>
-      <%for (var i = listData.length-1;i >= 0;i--) {%>
-      <article class="pull-right">
-        <h1 class="title">
-          <a href="<%= listData[i].url %>"><%= listData[i].title %></a>
-        </h1>
-        <div class="content">
-          <p class="brief"><%= listData[i].brief %></p>
+      <div id="container">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9">
+              <div class="post-container">
+                <%for (var i = 0; i < listData.length; i++) {%>
+                <article class="post">
+                  <h2 class="post-header">
+                    <a href="<%= listData[i].url %>">
+                      <%= listData[i].title %>
+                    </a>
+                  </h2>
+                  <div class="entry">
+                    <a href="<%= listData[i].url %>"><img src="./images/timthumb.png" class="pull-left" width="200" height="160"></a>
+                    <div class="text">
+                      <p>
+                          <%= listData[i].brief %>                        
+                        <a href="<%= listData[i].url %>">
+                          <span></span>
+                          <br />
+                          --Continue Reading
+                        </a>
+                      </p>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="post-meta row">
+                    <div class="col-md-8 post-time">
+                      <span>Post by <em>chenfengami</em> on <%= listData[i].timeStamp %></span>
+                    </div>
+                    <div class="col-md-4"></div>
+                  </div>
+                  <div class="clearfix"></div>
+                </article>
+                <%} %>
+                <div class="pagination-outer">
+                  <ul>
+                    <li>
+                      <span class="current">1</span>
+                    </li>
+                    <li><a href="">2</a></li>
+                    <li><a href="">3</a></li>
+                    <li><a href="">4</a></li>
+                    <li><a href="">5</a></li>
+                    <li><a href="">...</a></li>
+                    <li><a href="">60</a></li>
+                    <li><a href="" class="page-numbers">>></a></li>       
+                  </ul>           
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+            </div>
+          </div>
         </div>
-        <div class="read-all-detail ">
-          <a href="<%= listData[i].url %>">阅读全文 »</a>
-        </div>
-        <div class="end-line"></div>
-      </article>
-      <%} %>
-    </div>   
-  </section>
+      </div>
+    </section>
 </body>
 
 </html>

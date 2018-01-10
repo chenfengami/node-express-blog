@@ -1,7 +1,15 @@
+h1{
+    font-size: 20px;
+}
+h2{
+    font-size: 18px;
+}
+h3{
+    font-size: 16px;
+}
 .content-wrapper {
     max-width: 1000px;
     min-height: 800px;
-    background: #f5f5d5;
     margin: 0 auto;
 }
 
@@ -21,7 +29,6 @@
     padding: 15px;
     font-size: 13px;
     color: #4d4d4c;
-    background: #f7f7f7;
     line-height: 1.6;
 }
 .content-wrapper pre code{
@@ -31,13 +38,12 @@
     text-shadow: none;
 }
 .content-wrapper pre code{
-    font-size: 16px;
+    font-size: 14px;
 }
 /* 评论区内容 */
 #comment{
     width: 1000px;
     margin: 0 auto;
-    background: #f5f5d5;
 }
 #comment .list{
     border-bottom: 1px dashed #ddd;
