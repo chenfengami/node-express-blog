@@ -7,30 +7,38 @@ var article = mongo.Schema({
   timeStamp: String
 })
 var myPost = mongo.model('posts', article);
+var totalPage;
 module.exports = function (app) {
   //首页
   app.get('/', function (req, res, next) {
     myPost.find(function (err, posts) {
+      totalPage = Math.ceil(posts.length / 5);
       posts.forEach((e, i) => {
         e.url = '/detail/' + e.title;
       })
       listData = posts;
     })
     res.render('index', {
-      listData: listData
-    });
+      listData: listData,
+      currentPage: 1,
+      totalPage: totalPage
+    });    
   });
 
   //列表页面 分页
   app.get('/page/:num', function(req, res, next){
+    // console.log(req.params.num);
     myPost.find(function (err, posts) {
+      totalPage = Math.ceil(posts.length / 5);
       posts.forEach((e, i) => {
         e.url = '/detail/' + e.title;
       })
       listData = posts;
     })
     res.render('page', {
-      listData: listData
+      listData: listData,
+      currentPage: req.params.num,
+      totalPage: totalPage
     });    
   })
 

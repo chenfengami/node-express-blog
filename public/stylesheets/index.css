@@ -184,8 +184,6 @@ section #container .post-container article.post{
 .pagination-outer ul>li>span{
   padding: 7px 9px;
   font-size: 13px;
-  border-bottom-left-radius: 3px;
-  border-top-left-radius: 3px;
   color: #fff;
   float: left;
 }
@@ -204,6 +202,13 @@ section #container .post-container article.post{
   background-color: #0f7864;
   border-color: transparent;  
   text-decoration: none;
+}
+.pagination-outer .noBorder{
+  border-radius: 0;
+}
+.pagination-outer .border{
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
 }
 .pagination-outer .current{
   background-color: #0F7864; 

@@ -2,88 +2,14 @@
 <html>
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>
-    首页
-  </title>
+  <title>首页</title>
   <link rel='stylesheet' href="./stylesheets/bootstrap.min.css">
   <link rel='stylesheet' href='./stylesheets/index.css' />
 </head>
 
 <body>
   <%- include header %>
-    <section>
-      <div id="bio">
-        <div class="container">
-          <div class="row">
-            <div class="head-pic col-md-2 col-sm-3">
-              <img src="./images/me.jpg" alt="">
-            </div>
-            <div class="intro-info col-md-10 col-sm-9">
-              <h2>"木讷患者"</h2>
-              <h2>"17届不在校学生"</h2>
-              <h2>"多年后，做一个不漂的撒欢者"</h2>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="container">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-9">
-              <div class="post-container">
-                <%for (var i = 0; i < 5; i++) {%>
-                <article class="post">
-                  <h2 class="post-header">
-                    <a href="<%= listData[i].url %>">
-                      <%= listData[i].title %>
-                    </a>
-                  </h2>
-                  <div class="entry">
-                    <a href="<%= listData[i].url %>"><img src="./images/timthumb.png" class="pull-left" width="200" height="160"></a>
-                    <div class="text">
-                      <p>
-                          <%= listData[i].brief %>                        
-                        <a href="<%= listData[i].url %>">
-                          <span></span>
-                          <br />
-                          --Continue Reading
-                        </a>
-                      </p>
-                    </div>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="post-meta row">
-                    <div class="col-md-8 post-time">
-                      <span>Post by <em>chenfengami</em> on <%= listData[i].timeStamp %></span>
-                    </div>
-                    <div class="col-md-4"></div>
-                  </div>
-                  <div class="clearfix"></div>
-                </article>
-                <%} %>
-                <div class="pagination-outer">
-                  <ul>
-                    <li>
-                      <span class="current">1</span>
-                    </li>
-                    <li><a href="/page/2">2</a></li>
-                    <li><a href="">3</a></li>
-                    <li><a href="">4</a></li>
-                    <li><a href="">5</a></li>
-                    <li><a href="">...</a></li>
-                    <li><a href="">60</a></li>
-                    <li><a href="" class="page-numbers">>></a></li>       
-                  </ul>           
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <%- include section %>
 </body>
 
 </html>

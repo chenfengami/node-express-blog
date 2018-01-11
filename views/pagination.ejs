@@ -1,0 +1,32 @@
+<div class="pagination-outer">
+    <ul>
+        <% for(var i=1; i<=totalPage; i++) {%>
+            <li>
+                <% if(i == currentPage) {%>
+                        <% if(currentPage == 1) {%>
+                            <span class="current border"><%= currentPage %></span>                                                                
+                        <%} else {%>
+                            <% if(currentPage == totalPage) {%>
+                                <span class="current page-numbers"><%= currentPage %></span>                                                                    
+                            <%} else {%>
+                                <span class="current"><%= currentPage %></span>                                                                        
+                            <%} %>
+                        <%} %>
+                <%} else {%>
+                    <% if(i == 1) {%>
+                        <a href="/" class="border"><%= i %></a>  
+                    <%} else {%>
+                    <% if(i == totalPage) {%>
+                        <a href="/page/<%= i %>" class="page-numbers"><%= i %></a>                          
+                    <%} else {%>
+                        <a href="/page/<%= i %>"><%= i %></a>                                                  
+                    <%} %>
+                    <%} %>
+                <%} %>
+            </li>
+        <%} %>
+      <!-- <li>
+          <a href="" class="page-numbers">>></a>
+      </li> -->
+    </ul>           
+  </div>

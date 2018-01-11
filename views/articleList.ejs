@@ -1,0 +1,66 @@
+  <% if(currentPage != totalPage) {%>
+    <% for(var i=(currentPage-1) * 5; i<(currentPage*5); i++) {%>
+      <article class="post">
+          <h2 class="post-header">
+            <a href="<%= listData[i].url %>">
+              <%= listData[i].title %>
+            </a>
+          </h2>
+          <div class="entry">      
+            <a href="<%= listData[i].url %>"><img src="../images/timthumb.png" class="pull-left" width="200" height="160"></a>
+            <div class="text">
+              <p>
+                  <%= listData[i].brief %>                        
+                <a href="<%= listData[i].url %>">
+                  <span></span>
+                  <br />
+                  --Continue Reading
+                </a>
+              </p>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+          <div class="post-meta row">
+            <div class="col-md-8 post-time">
+              <span>Post by <em>chenfengami</em> on <%= listData[i].timeStamp %></span>
+            </div>
+            <div class="col-md-4"></div>
+          </div>
+          <div class="clearfix"></div>
+        </article>
+    <%} %>
+
+  <%} else {%>
+    <!-- 处理最后一页的数据 -->
+    <% for(var i=(currentPage - 1) * 5; i<(listData.length); i++) {%>
+    <article class="post">
+        <h2 class="post-header">
+          <a href="<%= listData[i].url %>">
+            <%= listData[i].title %>
+          </a>
+        </h2>
+        <div class="entry">
+          <a href="<%= listData[i].url %>"><img src="../images/timthumb.png" class="pull-left" width="200" height="160"></a>
+          <div class="text">
+            <p>
+                <%= listData[i].brief %>                        
+              <a href="<%= listData[i].url %>">
+                <span></span>
+                <br />
+                --Continue Reading
+              </a>
+            </p>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+        <div class="post-meta row">
+          <div class="col-md-8 post-time">
+            <span>Post by <em>chenfengami</em> on <%= listData[i].timeStamp %></span>
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+        <div class="clearfix"></div>
+      </article> 
+  <%} %>
+     
+  <%} %>
