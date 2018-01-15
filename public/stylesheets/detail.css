@@ -9,55 +9,19 @@ h3{
 }
 .content-wrapper {
     max-width: 1000px;
-    min-height: 800px;
-    margin: 0 auto;
+    min-height: 1200px;
+    background: #fff;
+    margin: 70px auto;
 }
 
-.content-wrapper h1.post-title {
-    color: #555;
+.content-wrapper article{
+    padding: 30px 40px 10px 40px;
+}
+
+.content-wrapper article .post-header{
+    color: #2C3E50;
+    line-height: 32px;
+    margin: 0px 0px 20px 0;
+    line-height: 32px;
     font-size: 26px;
-    text-align: center;
-    word-break: break-word;
-    font-weight: 300;
-    padding: 30px 0;
-}
-
-.content-wrapper pre{
-    overflow: auto;
-    width: 80%;
-    margin: 20px auto;
-    padding: 15px;
-    font-size: 13px;
-    color: #4d4d4c;
-    line-height: 1.6;
-}
-.content-wrapper pre code{
-    padding: 0;
-    color: #4d4d4c;
-    background: none;
-    text-shadow: none;
-}
-.content-wrapper pre code{
-    font-size: 14px;
-}
-/* 评论区内容 */
-#comment{
-    width: 1000px;
-    margin: 0 auto;
-}
-#comment .list{
-    border-bottom: 1px dashed #ddd;
-}
-#comment p{
-    padding: 20px;
-}
-#comment p.name{
-    font-weight: 600;
-}
-#comment p.comm-info{
-    padding-left: 30px;
-}
-#comment p.time{
-    font-style: italic;
-    text-align: right;
 }

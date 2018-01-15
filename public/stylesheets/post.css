@@ -8,9 +8,6 @@ section .bg{
     top: 105px;
     bottom: 0;
     width: 100%;
-    z-index: -1;
-    background: url('../images/bg.jpg') center no-repeat;
-    background-size: cover;
 }
 section h1{
     text-align: center;
