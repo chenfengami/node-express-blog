@@ -1,35 +1,75 @@
-    <section>
-        <div id="bio">
-          <div class="container">
-            <div class="row">
-              <div class="head-pic col-md-2 col-sm-3">
-                <img src="../images/me.jpg" alt="">
-              </div>
-              <div class="intro-info col-md-10 col-sm-9">
-                <h2>"木讷患者"</h2>
-                <h2>"17届不在校学生"</h2>
-                <h2>"多年后，做一个不漂的撒欢者"</h2>
-              </div>
-            </div>
+<section>
+  <div id="bio">
+    <div class="container">
+      <div class="row">
+        <div class="head-pic col-md-2 col-sm-3">
+          <img src="../images/me.jpg" alt="">
+        </div>
+        <div class="intro-info col-md-10 col-sm-9">
+          <h2>"木讷患者"</h2>
+          <h2>"17届不在校学生"</h2>
+          <h2>"多年后，做一个不漂的撒欢者"</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+          <div class="post-container">
+
+            <!-- articleList -->
+            <%- include articleList %>
+
+              <!-- 分页按钮 -->
+              <%- include pagination %>
+
           </div>
         </div>
-        <div id="container">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-9">
-                <div class="post-container">
-                  
-                  <!-- articleList -->
-                  <%- include articleList %> 
-  
-                  <!-- 分页按钮 -->
-                  <%- include pagination %>
-                  
-                </div>
-              </div>
-              <div class="col-md-3">
-              </div>
-            </div>
+        <div class="col-md-3">
+          <div class="menu-content">
+            <ul>
+              <li>
+                <h2 class="menu-title">
+                  前端工程化
+                </h2>
+                <a href="">webPack配置教程</a>
+                <a href="">Vue-cli构建SPA应用</a>
+                <a href="">webPack配置教程</a>
+                <a href="">Vue-cli构建SPA应用</a>
+              </li>
+              <li>
+                <h2 class="menu-title">
+                  前端工程化
+                </h2>
+                <a href="">webPack配置教程</a>
+                <a href="">Vue-cli构建SPA应用</a>
+                <a href="">webPack配置教程</a>
+                <a href="">Vue-cli构建SPA应用</a>
+              </li>
+              <li>
+                <h2 class="menu-title">
+                  前端工程化
+                </h2>
+                <a href="">webPack配置教程</a>
+                <a href="">Vue-cli构建SPA应用</a>
+                <a href="">webPack配置教程</a>
+                <a href="">Vue-cli构建SPA应用</a>
+              </li>
+              <li>
+                <h2 class="menu-title">
+                  前端工程化
+                </h2>
+                <a href="">webPack配置教程</a>
+                <a href="">Vue-cli构建SPA应用</a>
+                <a href="">webPack配置教程</a>
+                <a href="">Vue-cli构建SPA应用</a>
+              </li>
+            </ul>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>

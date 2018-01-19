@@ -9,8 +9,3 @@ section .bg{
     bottom: 0;
     width: 100%;
 }
-section h1{
-    text-align: center;
-    padding-bottom: 50px;
-    color: #00BCD4;
-}

@@ -8,6 +8,8 @@ var article = mongo.Schema({
 })
 var myPost = mongo.model('posts', article);
 var totalPage;
+
+const fs = require('fs');
 module.exports = function (app) {
   //首页
   app.get('/', function (req, res, next) {
@@ -44,8 +46,15 @@ module.exports = function (app) {
 
   //发布文章
   app.get('/post', function (req, res, next) {
+    // res.render('post');          
     res.render('post');
   })
+
+  //上传md文件
+  // app.post('/file-upload', function(req, res, next){
+  //   console.log(req.body.file);
+  // })
+
   app.post('/post', function (req, res, next) {
     if (!req.body.title) {
       req.flash('error', '标题不能为空');
