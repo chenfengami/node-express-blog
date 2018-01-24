@@ -19,7 +19,7 @@
             </h1>
             <div class="bg"></div>
             <!-- 手动发布 -->
-            <form class="form-horizontal" method="post">
+            <form enctype="multipart/form-data" action="/upload" class="form-horizontal" method="post">
                 <h2 class="col-sm-4 col-sm-offset-4 text-center">发布文章</h2>
                 <div class="form-group">
                     <div class="col-sm-4 col-sm-offset-4">
@@ -33,12 +33,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-4 col-sm-offset-4">
-                        <input type="file" name="file" placeholder="上传md文件">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-4 col-sm-offset-4">
-                        <textarea class="form-control" name="content" rows="20" placeholder="上传的md文件在此显示" disabled></textarea>
+                        <input type="file" name="mdFile" placeholder="上传md文件">
                     </div>
                 </div>
                 <div class="form-group">
@@ -51,6 +46,11 @@
                 </p>
             </form>
         </section>
+        <script>
+            onload = function(){
+                console.log(2);
+            }
+        </script>
 </body>
 
 </html>

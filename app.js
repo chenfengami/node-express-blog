@@ -10,8 +10,8 @@ var bodyParser = require('body-parser');
 var flash = require('connect-flash');
 var session = require('express-session');
 var routes = require('./routes/index');
-var app = express();
 
+var app = express();
 
 
 app.set('port', process.env.PORT || '3000');
@@ -20,7 +20,7 @@ app.set('view engine', 'ejs');
 app.use(session({
   secret: 'myblog',
   key: 'blog',
-  cookie: {maxAge: 3600000}, //存储时间为30天
+  cookie: {maxAge: 3600000},
   saveUninitialized: false,
 }));
 app.use(flash());
@@ -34,7 +34,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
 routes(app);
 
 // error handler

@@ -1,15 +1,25 @@
-const mongo = require('../db/setting')();
 var markdown = require('markdown').markdown;
-var article = mongo.Schema({
+var fs = require('fs');
+var multer = require('multer');
+
+var Db = require('../db/setting.js'); //引入数据库配置文件
+var Utils = require('../utils/Utils'); //引入工具类
+
+/**
+ * 创建数据库-发布文章表字段和对应的格式
+ * 
+ */
+var article = Db.setting().Schema({
   title: String,
   brief: String,
   content: String,
   timeStamp: String
 })
-var myPost = mongo.model('posts', article);
-var totalPage;
+var myPost = Db.setting().model('posts', article);
 
-const fs = require('fs');
+var totalPage; //总页数
+var upload = Utils.upload(); //定制上传文件格式
+
 module.exports = function (app) {
   //首页
   app.get('/', function (req, res, next) {
@@ -24,11 +34,10 @@ module.exports = function (app) {
       listData: listData,
       currentPage: 1,
       totalPage: totalPage
-    });    
+    });
   });
-
   //列表页面 分页
-  app.get('/page/:num', function(req, res, next){
+  app.get('/page/:num', function (req, res, next) {
     // console.log(req.params.num);
     myPost.find(function (err, posts) {
       totalPage = Math.ceil(posts.length / 5);
@@ -41,49 +50,41 @@ module.exports = function (app) {
       listData: listData,
       currentPage: req.params.num,
       totalPage: totalPage
-    });    
+    });
   })
 
-  //发布文章
+  //发布文章页面
   app.get('/post', function (req, res, next) {
-    // res.render('post');          
     res.render('post');
   })
 
   //上传md文件
-  // app.post('/file-upload', function(req, res, next){
-  //   console.log(req.body.file);
-  // })
-
-  app.post('/post', function (req, res, next) {
+  app.post('/upload', upload.single('mdFile'), function (req, res, next) {
+    var path = req.file.path; //读取上传文件路径
     if (!req.body.title) {
       req.flash('error', '标题不能为空');
       res.redirect('/post');
       return;
-    } else if (!req.body.content) {
-      req.flash('error', '文章内容不能为空');
+    } else if (!req.body.brief) {
+      req.flash('error', '简介不能为空');
       res.redirect('/post');
       return;
     }
-    var date = new Date();
-    var year = date.getFullYear();
-    var month = date.getMonth() + 1;
-    var day = date.getDate();
-    month = month >= 10 ? month : '0' + month;
-    day = day >=10 ? day : '0' + day;
-    var timeStamp = year + '-' + month + '-' + day; 
+
+    var contentMd = fs.readFileSync(path, 'utf-8'); //获取上传文件的内容
     var newPost = new myPost({
       title: req.body.title,
       brief: req.body.brief,
       //将markdown格式转换为html格式
-      content: markdown.toHTML(req.body.content),
-      timeStamp: timeStamp
+      content: markdown.toHTML(contentMd),
+      timeStamp: Utils.getDate()
     })
+
     newPost.save(function (err, data) {
       if (data) {
         res.redirect('/');
-      }else{
-        res.redirect('/post');        
+      } else {
+        res.redirect('/post');
       }
     })
   })
@@ -92,8 +93,10 @@ module.exports = function (app) {
   app.get('/detail/:id', function (req, res, next) {
     myPost.find(function (err, posts) {
       posts.forEach((e, i) => {
-        if(req.params.id == e.title){
-          res.render('detail', {posts: posts[i]});
+        if (req.params.id == e.title) {
+          res.render('detail', {
+            posts: posts[i]
+          });
         }
       })
     })
