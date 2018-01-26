@@ -1,0 +1,54 @@
+section{
+    width: 700px;
+    min-height: 700px;
+    background: #fff;
+    margin: 70px auto;
+}
+section .coll-wrap{
+    margin: 20px 45px;    
+    position: relative;
+}
+section .coll-wrap::after{
+    content: "";
+    display: block;
+    width: 4px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #f5f5f5;
+}
+section .collection a{
+    display: block;
+    border-bottom: 1px dashed #ddd;
+    transition: all .3s;
+    padding: 27px 0 17px 0;
+    position: relative;
+}
+section .collection a::before{
+    position: absolute;
+    content: "";
+    display: block;
+    left: -2px;
+    top: 27px;
+    width: 8px;
+    height: 8px;
+    background: #555;
+    border-radius: 50%;
+    z-index: 2;
+}
+section .collection a:hover{
+    text-decoration: none;
+    border-bottom: 1px dashed #000;
+    transition: all .3s;
+}
+section .collection em{
+    color: #555;
+    font-size: 12px;
+    font-style: normal;
+    padding: 0 7px 0 17px;
+}
+section .collection span{
+    color: #666;
+    font-size: 16px;
+}

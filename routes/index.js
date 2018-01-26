@@ -102,6 +102,11 @@ module.exports = function (app) {
     })
   });
 
+  //归档页面
+  app.get('/archives', function(req, res, next){
+    res.render('archives');
+  })
+
   //404
   app.get('*', function (req, res, next) {
     res.status(404);
