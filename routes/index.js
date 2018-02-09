@@ -10,10 +10,11 @@ var Utils = require('../utils/Utils'); //引入工具类
  * 
  */
 var article = Db.setting().Schema({
-  title: String,
-  brief: String,
-  content: String,
-  timeStamp: String
+  classify: String,   //文章分类
+  title: String, //文章标题
+  brief: String, //文章简介
+  content: String, //文章内容
+  timeStamp: String //发布时间戳
 })
 var myPost = Db.setting().model('posts', article);
 
@@ -102,11 +103,7 @@ module.exports = function (app) {
     })
   });
 
-  //归档页面
-  app.get('/archives', function(req, res, next){
-    res.render('archives');
-  })
-
+  
   //404
   app.get('*', function (req, res, next) {
     res.status(404);
